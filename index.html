@@ -24,11 +24,11 @@
         <label>Daily Operating Hours</label>
       </div>
       <div class="col-md-4 text-center">
-        <label>Result</label>
+        <label>Result(WAT)</label>
       </div>
     </div>
     <div id="form-container">
-    <div class="row" id="main-inputs">
+    <div class="row" id="main-inputs-0">
       <div class="col-md-3">
         <div class="form-group">
         <select class="form-control" id="device" placeholder="Chose a device" name="device">
@@ -43,29 +43,30 @@
       </div>
       <div class="col-md-1">
         <div class="form-group">
-          <input type="number" id ="quantity" min="0" class="form-control" value="0" placeholder="Enter a number" name="quantity">
+          <input type="number" id ="quantity" min="0" class="form-control" value="" placeholder="Enter a number" name="quantity" data-bind="value: quantity">
         </div>
       </div>
       <div class="col-md-2">
-        <input type="number" min="0" class="form-control" value="0" placeholder="Enter a number" name="capacity">
+        <input type="number" min="0" class="form-control" value="0" placeholder="Enter a number" name="capacity" data-bind="value: capacity">
       </div>
       <div class="col-md-2">
-        <input type="number" min="0" class="form-control" value="0" placeholder="Enter a number" name="daily-operating-hours">
+        <input type="number" min="0" class="form-control" value="0" placeholder="Enter a number" name="daily-operating-hours" data-bind="value: dailyOperatingHours">
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 text-center" data-bind="text: rowResult">
       </div>
     </div>
     </div>
     <div class="row text-center">
      <button class="btn btn-default" type="button" id="addNewRowButton">Add New Device</button>
     </div>
-
+    <div id="result" class="text-center h4">Total Consumption: <span class="h1 text-info" data-bind="text: finalResult"></h1></div>
 </div> <!-- .container end -->
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  <script src="lib/knockout-3.4.2.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
