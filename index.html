@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+<div class="container bg-info">
+  <h1 class="text-center">Calculator</h1>
+  <!-- Form Starting -->
+    <div class="row" id="labels">
+      <div class="col-md-3">
+        <label>Device</label>
+      </div>
+      <div class="col-md-1">
+          <label>Qty</label>
+      </div>
+      <div class="col-md-2">
+        <label>Capacity(WAT)</label>
+      </div>
+      <div class="col-md-2">
+        <label>Daily Operating Hours</label>
+      </div>
+      <div class="col-md-4 text-center">
+        <label>Result</label>
+      </div>
+    </div>
+    <div id="form-container">
+    <div class="row" id="main-inputs">
+      <div class="col-md-3">
+        <div class="form-group">
+        <select class="form-control" id="device" placeholder="Chose a device" name="device">
+          <option value="Air conditioning">Air conditioning</option>
+          <option value="Ceiling lighting">Ceiling lighting</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Tv">Tv</option>
+          <option value="Reciever">Receiver</option>
+          <option value="Other">Other</option>
+        </select>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" id ="quantity" min="0" class="form-control" value="0" placeholder="Enter a number" name="quantity">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <input type="number" min="0" class="form-control" value="0" placeholder="Enter a number" name="capacity">
+      </div>
+      <div class="col-md-2">
+        <input type="number" min="0" class="form-control" value="0" placeholder="Enter a number" name="daily-operating-hours">
+      </div>
+      <div class="col-md-4 text-center">
+      </div>
+    </div>
+    </div>
+    <div class="row text-center">
+     <button class="btn btn-default" type="button" id="addNewRowButton">Add New Device</button>
+    </div>
+
+</div> <!-- .container end -->
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
