@@ -12,7 +12,7 @@ let addNewRow = function(index) {
 		                  $mainInputs.html() + "</div>");
 }
 
-// Adding 3 rows on pageload
+// Adding 3 more rows on pageload
 for(let i=1; i<4; i++){
 	addNewRow(i);
 	rowIndex = i; // Increasing Row Index by 1 with each iteration
@@ -49,20 +49,27 @@ let finalResultViewModel = function() {
 	  lastChangedValues.sum = function () {
 	  	    let result = 0;
 	  	    for(let i=0; i < lastChangedValues.length; i++){
-        	   result = result + lastChangedValues[i]
+        	   result = result + lastChangedValues[i];
         	}
         	return result;
-      }
+      	}
+      
       /* Pushing the last results after value change to lastChangedValues array
 		And returning the result
       */
-      self.finalResult = ko.computed(function() {
+      self.totalConsumption = ko.computed(function() {
       	    for(let i=0; i < self.observablearray().length; i++){
         	   lastChangedValues[i] = self.observablearray()[i]();
         	}
-        	return  lastChangedValues.sum();
-        		
+        	return lastChangedValues.sum();		
     	}, self);
+      
+      // Loss of efficiency is 30% more 
+      self.totalConsumptionWithLossOfEfficiency = ko.computed(function() {
+      	    let sum = self.totalConsumption();
+        	return  (sum + sum * 30 / 100);		
+    	}, self);
+
 };
 let finalResultViewModelInstance = new finalResultViewModel;
 ko.applyBindings(finalResultViewModelInstance, document.getElementById('result'));
@@ -70,12 +77,16 @@ ko.applyBindings(finalResultViewModelInstance, document.getElementById('result')
 // ViewModel to calculate the result of each row
 let singleRowViewModel = function() {
 	let self = this;
-	    self.quantity =  ko.observable(0);        
-        self.capacity =  ko.observable(0);
-        self.dailyOperatingHours =  ko.observable(0);
+	      self.quantity =  ko.observable();        
+        self.capacity =  ko.observable();
+        self.dailyOperatingHours =  ko.observable();
+        self.rowResult = ko.computed(function() {
+        	if (isNaN(self.quantity()) || isNaN(self.capacity()) || isNaN(self.dailyOperatingHours())) {
+            return 0;
+          } else {
+          let result = self.quantity() * self.capacity() * self.dailyOperatingHours();
+        	return result; }
 
-        this.rowResult = ko.computed(function() {
-        	return (self.quantity() * self.capacity() * self.dailyOperatingHours());
     	}, self);
 }
 // Binding new instance for each row
@@ -87,10 +98,14 @@ for(let i=0; i <= rowIndex; i++){
 
 
 
-
-
-
-
-
-
-
+/* PDF print
+$("#printPDF").click(function () {
+            var divContents = $("#container").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }); */

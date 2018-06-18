@@ -1,0 +1,17 @@
+
+.finalResult {
+	font-size:25px;
+}
+@media screen and (max-width: 768px) {
+#main-inputs-1,  #main-inputs-2, #main-inputs-3, #labels {
+		display:none !important;
+	}
+	.finalResultText {
+		text-align:center;
+	}
+}
+@media screen and (min-width: 769px){
+	 .rowResultLabel{
+		display:none !important;
+	}
+}
