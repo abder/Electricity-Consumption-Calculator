@@ -6,15 +6,17 @@ let $addNewRowButton = $('#addNewRowButton');
 // Row's Index Tracking Variable
 let rowIndex = 1; 
 
+
 // Function to append new row 
 let addNewRow = function(index) {
-	$formContainer.append('<div class="row" id="main-inputs-' + index + '">' + 
-		                  $mainInputs.html() + "</div>");
+      $formContainer.append('<div class="row" id="main-inputs-' + index + '">' + 
+      $mainInputs.html() + "</div>");  
 }
-
 // Adding 3 more rows on pageload
 for(let i=1; i<4; i++){
-	addNewRow(i);
+  if ($('body').width() > 576 ){
+	     addNewRow(i);
+  }
 	rowIndex = i; // Increasing Row Index by 1 with each iteration
 }
 
@@ -76,18 +78,30 @@ ko.applyBindings(finalResultViewModelInstance, document.getElementById('result')
 
 // ViewModel to calculate the result of each row
 let singleRowViewModel = function() {
-	let self = this;
+	      let self = this;
 	      self.quantity =  ko.observable();        
         self.capacity =  ko.observable();
         self.dailyOperatingHours =  ko.observable();
-        self.rowResult = ko.computed(function() {
-        	if (isNaN(self.quantity()) || isNaN(self.capacity()) || isNaN(self.dailyOperatingHours())) {
+        self.rowResult = ko.computed({
+        	read: function () {
+            if (isNaN(self.quantity()) || isNaN(self.capacity()) || isNaN(self.dailyOperatingHours())) {
             return 0;
-          } else {
-          let result = self.quantity() * self.capacity() * self.dailyOperatingHours();
-        	return result; }
+            } else {
+            let result = self.quantity() * self.capacity() * self.dailyOperatingHours();
+          	return result; }
 
-    	}, self);
+      	   }, 
+          write: function (value) {
+            self.quantity(value);
+          },
+            owner: self
+        });
+
+        self.removeRow = function(ele, event) {
+          ele.rowResult(0);
+          let rowNode = event.currentTarget.parentNode.parentNode;
+          $(rowNode).detach();  
+        }
 }
 // Binding new instance for each row
 for(let i=0; i <= rowIndex; i++){
@@ -98,14 +112,7 @@ for(let i=0; i <= rowIndex; i++){
 
 
 
-/* PDF print
+/* PDF print */
 $("#printPDF").click(function () {
-            var divContents = $("#container").html();
-            var printWindow = window.open('', '', 'height=400,width=800');
-            printWindow.document.write('<html><head><title>DIV Contents</title>');
-            printWindow.document.write('</head><body >');
-            printWindow.document.write(divContents);
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-            printWindow.print();
-        }); */
+            window.print();
+}); 

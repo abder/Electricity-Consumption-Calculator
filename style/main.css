@@ -1,17 +1,128 @@
-
 .finalResult {
 	font-size:25px;
 }
-@media screen and (max-width: 768px) {
-#main-inputs-1,  #main-inputs-2, #main-inputs-3, #labels {
-		display:none !important;
-	}
+#form-container {
+	margin-top:25px;
+}
+#form-container .row {
+	padding:15px 0;
+    border-left:1px #d4dcea solid;
+    border-right:1px #d4dcea solid;
+}
+#form-container .row:nth-last-child(1) {
+	border-bottom:2px #d4dcea dotted;
+}
+#form-container .row:nth-child(odd) {
+	background:#d4dcea;
+}
+#form-container .row:nth-child(1) {
+	border-radius:6px 6px 0 0;
+}
+.form-group {
+	margin-bottom:0;
+}
+
+.resultCol {
+	font-size:20px;
+}
+.unit {
+	font-size:12px;
+	font-style: oblique;
+
+}
+.resultColVal {
+	font-weight:bold;
+}
+
+.resultColVal, .unit {
+	color:#8596b5;
+}
+
+.addNewButton {
+	background:#636f88;
+	border-color:#636f88;
+	margin:25px 0;
+}
+
+.finaleResultCol {
+	background:#f2e4e4;
+	margin-top:5px;
+	border-radius:6px;
+}
+
+#form-container .form-control {
+	width:85%;
+	display: inline;
+}
+#form-container .fa-times {
+	color:#aba159 !important;
+	font-size:16px !important;
+	cursor:pointer;
+}
+
+
+#form-container .fa {
+color: #999999; 
+margin-left:3px;
+}
+#printPDF {
+	margin:15px auto;
+}
+@media screen and (max-width: 576px) {
 	.finalResultText {
 		text-align:center;
 	}
-}
-@media screen and (min-width: 769px){
-	 .rowResultLabel{
-		display:none !important;
+	.form-control {
+		margin-bottom:10px;
+	}
+	.resultCol {
+		text-align:center;
 	}
 }
+@media screen and (min-width: 577px){
+
+	.resultCol {
+		text-align:right;
+	}
+}
+
+
+
+@media print { 
+
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+
+
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left;
+  }
+
+
+
+* { 
+ 	display: none; 
+ } 
+ #form-container, html, body,
+  .container ,#result, #result *,#form-container .row,
+   #form-container .row * {
+ 	display:block;
+ }
+ #printPDF, i {
+ 	display: none !important;
+ }
+ .finalResultText, .resultCol {
+ 	text-align:right !important;
+ }
+	
+    .container, .row, body, html  {
+        width:1170px !important;
+    }
+ 
+}
+ 
