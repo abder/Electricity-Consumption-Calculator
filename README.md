@@ -21,4 +21,4 @@ A single page Web Application that allows you to easily calculate your Electrici
 - Run: index.html
 
 # Live Preview 
-Live preview [Here](https://douara.me/Electricity-Consumption-Calculator/)
+Live preview [Here](https://douara.me/preview/ec-calculator/)
