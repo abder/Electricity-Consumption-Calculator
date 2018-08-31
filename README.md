@@ -18,7 +18,7 @@ A single page Web Application that allows you to easily calculate your Electrici
   git clone https://github.com/DOUARA/Electricity-Consumption-Calculator.git calculator
 ```
 - Browse to the folder: calculator
-- Run: index.html
+- Open index.html using your browser 
 
 # Live Preview 
 Live preview [Here](https://douara.me/preview/ec-calculator/)
