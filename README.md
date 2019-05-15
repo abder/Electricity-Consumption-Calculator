@@ -21,4 +21,4 @@ A single page Web Application that allows you to easily calculate your Electrici
 - Open index.html using your browser 
 
 # Live Preview 
-Live preview [Here](https://douara.me/preview/ec-calculator/)
+Live preview [Here](https://cv.douara.me/preview/ec-calculator/)
