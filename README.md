@@ -1,5 +1,5 @@
 # Description 
-A single page Web Application that allows you to easily calculate your Electricity Consumption 
+A single page Web Application that allows you to easily calculate Electricity Consumption 
 
 # Dependencies
 - Bootstrap 3.3.6
